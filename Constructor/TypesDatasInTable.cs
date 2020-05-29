@@ -1,0 +1,36 @@
+﻿namespace Diplom2
+{
+    enum TypesDataas
+    {
+        CHAR,
+        VARCHAR,
+        TINYTEXT,
+        TEXT,
+        MEDIUMTEXT,
+        LARGETEXT,
+        TINYINT,
+        BOOL,
+        TINYINT_UNSIGNED,
+        SMALLINT,
+        SMALLINT_UNSIGNED,
+        MEDIUMINT,
+        MEDIUMINT_UNSIGNED,
+        INT_UNSIGNED,
+        INT,
+        BIGUNT,
+        BIGINT_UNSIGNED,
+        DECIMAL,
+        FLOAT,
+        DOUBLE,
+        DATE,
+        TIME,
+        DATETIME,
+        TIMESTAMP,
+        YEAR,
+        ENUM,
+        SET,
+        TINYBLOB,
+        MEDIUMBLOB,
+        LARGEBLOB
+    }
+}
