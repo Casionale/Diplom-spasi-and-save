@@ -28,7 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pbDiagram = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,15 +62,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbLowPriorityUpdate = new System.Windows.Forms.CheckBox();
             this.dgvUpdateFields = new System.Windows.Forms.DataGridView();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.pInsert = new System.Windows.Forms.Panel();
             this.rtbInsertSelectQuery = new System.Windows.Forms.RichTextBox();
             this.dgvInsertFields = new System.Windows.Forms.DataGridView();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pSelect = new System.Windows.Forms.Panel();
             this.tcSelect = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -90,10 +91,29 @@
             this.label1 = new System.Windows.Forms.Label();
             this.rtbQueryConstructor = new System.Windows.Forms.RichTextBox();
             this.btnResetQuery = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dELETEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pDelete = new System.Windows.Forms.Panel();
+            this.dgvDeleteFields = new System.Windows.Forms.DataGridView();
+            this.cbDeleteLow = new System.Windows.Forms.CheckBox();
+            this.cbDeleteQuick = new System.Windows.Forms.CheckBox();
+            this.rtbDeleteWhere = new System.Windows.Forms.RichTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tbDeleteLimit = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnGen = new System.Windows.Forms.Button();
+            this.Column20 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pbDiagram)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.ss.SuspendLayout();
@@ -111,6 +131,10 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConditions)).BeginInit();
             this.tabPage3.SuspendLayout();
+            this.pDelete.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDeleteFields)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbDiagram
@@ -189,6 +213,7 @@
             this.sELECTToolStripMenuItem,
             this.iNSERTToolStripMenuItem,
             this.uPDATEToolStripMenuItem,
+            this.dELETEToolStripMenuItem,
             this.toolStripSeparator2,
             this.закрытьКонструкторToolStripMenuItem});
             this.конструкторЗапросовToolStripMenuItem.Name = "конструкторЗапросовToolStripMenuItem";
@@ -269,6 +294,7 @@
             this.pConstructor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pConstructor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pConstructor.Controls.Add(this.pDelete);
             this.pConstructor.Controls.Add(this.pUpdate);
             this.pConstructor.Controls.Add(this.pInsert);
             this.pConstructor.Controls.Add(this.pSelect);
@@ -285,20 +311,21 @@
             this.pUpdate.Controls.Add(this.pUpdateSettings);
             this.pUpdate.Controls.Add(this.dgvUpdateFields);
             this.pUpdate.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pUpdate.Location = new System.Drawing.Point(69, 0);
+            this.pUpdate.Location = new System.Drawing.Point(20, 0);
             this.pUpdate.Name = "pUpdate";
-            this.pUpdate.Size = new System.Drawing.Size(38, 198);
+            this.pUpdate.Size = new System.Drawing.Size(10, 198);
             this.pUpdate.TabIndex = 5;
             // 
             // pUpdateSettings
             // 
+            this.pUpdateSettings.Controls.Add(this.label3);
             this.pUpdateSettings.Controls.Add(this.tbWhereUpdate);
             this.pUpdateSettings.Controls.Add(this.tbLimitUpdate);
             this.pUpdateSettings.Controls.Add(this.cbIgnoreUpdate);
             this.pUpdateSettings.Controls.Add(this.label2);
             this.pUpdateSettings.Controls.Add(this.cbLowPriorityUpdate);
             this.pUpdateSettings.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pUpdateSettings.Location = new System.Drawing.Point(-138, 0);
+            this.pUpdateSettings.Location = new System.Drawing.Point(-166, 0);
             this.pUpdateSettings.Name = "pUpdateSettings";
             this.pUpdateSettings.Size = new System.Drawing.Size(176, 198);
             this.pUpdateSettings.TabIndex = 5;
@@ -307,10 +334,10 @@
             // 
             this.tbWhereUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbWhereUpdate.Location = new System.Drawing.Point(6, 99);
+            this.tbWhereUpdate.Location = new System.Drawing.Point(6, 112);
             this.tbWhereUpdate.Multiline = true;
             this.tbWhereUpdate.Name = "tbWhereUpdate";
-            this.tbWhereUpdate.Size = new System.Drawing.Size(160, 91);
+            this.tbWhereUpdate.Size = new System.Drawing.Size(160, 78);
             this.tbWhereUpdate.TabIndex = 5;
             // 
             // tbLimitUpdate
@@ -365,30 +392,6 @@
             this.dgvUpdateFields.Size = new System.Drawing.Size(249, 198);
             this.dgvUpdateFields.TabIndex = 0;
             // 
-            // Column16
-            // 
-            this.Column16.HeaderText = "Поле или SELECT";
-            this.Column16.Name = "Column16";
-            // 
-            // Column17
-            // 
-            this.Column17.HeaderText = "Псевдоним";
-            this.Column17.Name = "Column17";
-            // 
-            // Column18
-            // 
-            this.Column18.HeaderText = "Значение или SELECT";
-            this.Column18.Name = "Column18";
-            // 
-            // Column19
-            // 
-            this.Column19.HeaderText = "OrderBy";
-            this.Column19.Items.AddRange(new object[] {
-            "NONE",
-            "ASC",
-            "DESC"});
-            this.Column19.Name = "Column19";
-            // 
             // pInsert
             // 
             this.pInsert.BackColor = System.Drawing.Color.White;
@@ -396,15 +399,15 @@
             this.pInsert.Controls.Add(this.dgvInsertFields);
             this.pInsert.Dock = System.Windows.Forms.DockStyle.Left;
             this.pInsert.ForeColor = System.Drawing.Color.White;
-            this.pInsert.Location = new System.Drawing.Point(26, 0);
+            this.pInsert.Location = new System.Drawing.Point(10, 0);
             this.pInsert.Name = "pInsert";
-            this.pInsert.Size = new System.Drawing.Size(43, 198);
+            this.pInsert.Size = new System.Drawing.Size(10, 198);
             this.pInsert.TabIndex = 4;
             // 
             // rtbInsertSelectQuery
             // 
             this.rtbInsertSelectQuery.Dock = System.Windows.Forms.DockStyle.Right;
-            this.rtbInsertSelectQuery.Location = new System.Drawing.Point(7, 0);
+            this.rtbInsertSelectQuery.Location = new System.Drawing.Point(-26, 0);
             this.rtbInsertSelectQuery.Name = "rtbInsertSelectQuery";
             this.rtbInsertSelectQuery.Size = new System.Drawing.Size(36, 198);
             this.rtbInsertSelectQuery.TabIndex = 1;
@@ -412,36 +415,31 @@
             // 
             // dgvInsertFields
             // 
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvInsertFields.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvInsertFields.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvInsertFields.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInsertFields.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column14,
             this.Column15});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvInsertFields.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvInsertFields.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvInsertFields.Dock = System.Windows.Forms.DockStyle.Left;
             this.dgvInsertFields.Location = new System.Drawing.Point(0, 0);
             this.dgvInsertFields.Name = "dgvInsertFields";
             this.dgvInsertFields.RowHeadersVisible = false;
-            this.dgvInsertFields.Size = new System.Drawing.Size(69, 198);
+            this.dgvInsertFields.Size = new System.Drawing.Size(163, 198);
             this.dgvInsertFields.TabIndex = 0;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "Поле";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            // 
-            // Column15
-            // 
-            this.Column15.HeaderText = "Значение";
-            this.Column15.Name = "Column15";
             // 
             // pSelect
             // 
@@ -451,7 +449,7 @@
             this.pSelect.Dock = System.Windows.Forms.DockStyle.Left;
             this.pSelect.Location = new System.Drawing.Point(0, 0);
             this.pSelect.Name = "pSelect";
-            this.pSelect.Size = new System.Drawing.Size(26, 198);
+            this.pSelect.Size = new System.Drawing.Size(10, 198);
             this.pSelect.TabIndex = 3;
             this.pSelect.VisibleChanged += new System.EventHandler(this.pSelect_VisibleChanged);
             // 
@@ -464,7 +462,7 @@
             this.tcSelect.Location = new System.Drawing.Point(0, 0);
             this.tcSelect.Name = "tcSelect";
             this.tcSelect.SelectedIndex = 0;
-            this.tcSelect.Size = new System.Drawing.Size(24, 196);
+            this.tcSelect.Size = new System.Drawing.Size(8, 196);
             this.tcSelect.TabIndex = 1;
             this.tcSelect.SelectedIndexChanged += new System.EventHandler(this.tcSelect_SelectedIndexChanged);
             // 
@@ -475,7 +473,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(16, 170);
+            this.tabPage1.Size = new System.Drawing.Size(0, 170);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Поля и таблицы";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -491,7 +489,7 @@
             this.Column7,
             this.Column3});
             this.dgvJoin.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dgvJoin.Location = new System.Drawing.Point(-249, 3);
+            this.dgvJoin.Location = new System.Drawing.Point(-265, 3);
             this.dgvJoin.Name = "dgvJoin";
             this.dgvJoin.RowHeadersVisible = false;
             this.dgvJoin.Size = new System.Drawing.Size(262, 164);
@@ -686,16 +684,6 @@
             this.btnResetQuery.UseVisualStyleBackColor = true;
             this.btnResetQuery.Click += new System.EventHandler(this.btnResetQuery_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(588, 1);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "TEST SELECT";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(794, 1);
@@ -706,35 +694,228 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // Column14
             // 
-            this.button3.Location = new System.Drawing.Point(477, 1);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(105, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "TEST INSERT";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.Column14.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Column14.HeaderText = "Поле";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
             // 
-            // button4
+            // Column15
             // 
-            this.button4.Location = new System.Drawing.Point(360, 1);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(104, 23);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "TEST UPDATE";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            this.Column15.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Column15.HeaderText = "Значение";
+            this.Column15.Name = "Column15";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(32, 96);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Условие изменений";
+            // 
+            // Column16
+            // 
+            this.Column16.HeaderText = "Поле";
+            this.Column16.Name = "Column16";
+            // 
+            // Column17
+            // 
+            this.Column17.HeaderText = "Псевдоним";
+            this.Column17.Name = "Column17";
+            // 
+            // Column18
+            // 
+            this.Column18.HeaderText = "Значение или SELECT";
+            this.Column18.Name = "Column18";
+            // 
+            // Column19
+            // 
+            this.Column19.HeaderText = "OrderBy";
+            this.Column19.Items.AddRange(new object[] {
+            "NONE",
+            "ASC",
+            "DESC"});
+            this.Column19.Name = "Column19";
+            // 
+            // dELETEToolStripMenuItem
+            // 
+            this.dELETEToolStripMenuItem.Name = "dELETEToolStripMenuItem";
+            this.dELETEToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
+            this.dELETEToolStripMenuItem.Text = "DELETE";
+            this.dELETEToolStripMenuItem.Click += new System.EventHandler(this.dELETEToolStripMenuItem_Click);
+            // 
+            // pDelete
+            // 
+            this.pDelete.BackColor = System.Drawing.Color.White;
+            this.pDelete.Controls.Add(this.panel2);
+            this.pDelete.Controls.Add(this.panel1);
+            this.pDelete.Controls.Add(this.dgvDeleteFields);
+            this.pDelete.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pDelete.Location = new System.Drawing.Point(30, 0);
+            this.pDelete.Name = "pDelete";
+            this.pDelete.Size = new System.Drawing.Size(397, 198);
+            this.pDelete.TabIndex = 6;
+            // 
+            // dgvDeleteFields
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvDeleteFields.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDeleteFields.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDeleteFields.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDeleteFields.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.Column20});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDeleteFields.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvDeleteFields.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dgvDeleteFields.Location = new System.Drawing.Point(0, 0);
+            this.dgvDeleteFields.Name = "dgvDeleteFields";
+            this.dgvDeleteFields.RowHeadersVisible = false;
+            this.dgvDeleteFields.Size = new System.Drawing.Size(220, 198);
+            this.dgvDeleteFields.TabIndex = 1;
+            this.dgvDeleteFields.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDeleteFields_CellEndEdit);
+            // 
+            // cbDeleteLow
+            // 
+            this.cbDeleteLow.AutoSize = true;
+            this.cbDeleteLow.Location = new System.Drawing.Point(6, 10);
+            this.cbDeleteLow.Name = "cbDeleteLow";
+            this.cbDeleteLow.Size = new System.Drawing.Size(108, 17);
+            this.cbDeleteLow.TabIndex = 2;
+            this.cbDeleteLow.Text = "LOW_PRIORITY";
+            this.cbDeleteLow.UseVisualStyleBackColor = true;
+            // 
+            // cbDeleteQuick
+            // 
+            this.cbDeleteQuick.AutoSize = true;
+            this.cbDeleteQuick.Location = new System.Drawing.Point(6, 33);
+            this.cbDeleteQuick.Name = "cbDeleteQuick";
+            this.cbDeleteQuick.Size = new System.Drawing.Size(59, 17);
+            this.cbDeleteQuick.TabIndex = 3;
+            this.cbDeleteQuick.Text = "QUICK";
+            this.cbDeleteQuick.UseVisualStyleBackColor = true;
+            // 
+            // rtbDeleteWhere
+            // 
+            this.rtbDeleteWhere.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbDeleteWhere.Location = new System.Drawing.Point(0, 0);
+            this.rtbDeleteWhere.Name = "rtbDeleteWhere";
+            this.rtbDeleteWhere.Size = new System.Drawing.Size(177, 106);
+            this.rtbDeleteWhere.TabIndex = 4;
+            this.rtbDeleteWhere.Text = "";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.tbDeleteLimit);
+            this.panel1.Controls.Add(this.cbDeleteQuick);
+            this.panel1.Controls.Add(this.cbDeleteLow);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(220, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(177, 92);
+            this.panel1.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.rtbDeleteWhere);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(220, 92);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(177, 106);
+            this.panel2.TabIndex = 3;
+            // 
+            // tbDeleteLimit
+            // 
+            this.tbDeleteLimit.Location = new System.Drawing.Point(45, 49);
+            this.tbDeleteLimit.Name = "tbDeleteLimit";
+            this.tbDeleteLimit.Size = new System.Drawing.Size(117, 20);
+            this.tbDeleteLimit.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(4, 53);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "LIMIT";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 76);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Условие";
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Поле";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Условие";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // btnGen
+            // 
+            this.btnGen.Location = new System.Drawing.Point(226, 1);
+            this.btnGen.Name = "btnGen";
+            this.btnGen.Size = new System.Drawing.Size(128, 23);
+            this.btnGen.TabIndex = 10;
+            this.btnGen.Text = "Генерировать запрос";
+            this.btnGen.UseVisualStyleBackColor = true;
+            this.btnGen.Click += new System.EventHandler(this.btnGen_Click);
+            // 
+            // Column20
+            // 
+            this.Column20.HeaderText = "ORDER BY";
+            this.Column20.Name = "Column20";
             // 
             // FormDiagram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 449);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnGen);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnResetQuery);
             this.Controls.Add(this.pConstructor);
             this.Controls.Add(this.vsbDiagram);
@@ -771,6 +952,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvConditions)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.pDelete.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDeleteFields)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -809,7 +995,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewComboBoxColumn Column3;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvConditions;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.CheckBox cbUsingDistinct;
@@ -826,23 +1011,37 @@
         private System.Windows.Forms.Panel pInsert;
         private System.Windows.Forms.RichTextBox rtbInsertSelectQuery;
         private System.Windows.Forms.DataGridView dgvInsertFields;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolStripMenuItem uPDATEToolStripMenuItem;
         private System.Windows.Forms.Panel pUpdate;
         private System.Windows.Forms.DataGridView dgvUpdateFields;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Column19;
         private System.Windows.Forms.TextBox tbLimitUpdate;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox cbIgnoreUpdate;
         private System.Windows.Forms.CheckBox cbLowPriorityUpdate;
         private System.Windows.Forms.Panel pUpdateSettings;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox tbWhereUpdate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Column19;
+        private System.Windows.Forms.ToolStripMenuItem dELETEToolStripMenuItem;
+        private System.Windows.Forms.Panel pDelete;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RichTextBox rtbDeleteWhere;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbDeleteLimit;
+        private System.Windows.Forms.CheckBox cbDeleteQuick;
+        private System.Windows.Forms.CheckBox cbDeleteLow;
+        private System.Windows.Forms.DataGridView dgvDeleteFields;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.Button btnGen;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column20;
     }
 }
 

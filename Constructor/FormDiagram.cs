@@ -24,12 +24,14 @@ namespace Diplom2
         public SelectQuery mainSelectQuery;
         public InsertQuery mainInsertQuery;
         public UpdateQuery mainUpdateQuery;
+        public DeleteQuery mainDeleteQuery;
         private bool isMin;
         private bool isMax;
         private bool isOpenConstructior = false;
         private bool isOpenSelectInConstructor = false;
         private bool isOpenInsertInConstructor = false;
         private bool isOpenUpdateInConstructor = false;
+        private bool isOpenDeleteInConstructor = false;
         private bool isShift = false;
         private int _clicableField;
         GeckoWebBrowser gbQueryConstructor;
@@ -78,6 +80,7 @@ namespace Diplom2
             pSelect.Width = pConstructor.Width * 2 / 3;
             pInsert.Width = pConstructor.Width * 2 / 3;
             pUpdate.Width = pConstructor.Width * 2 / 3;
+            pDelete.Width = pConstructor.Width * 2 / 3;
 
             dgvConditions.Width = tcSelect.Width;
             dgvAlias.Width = tcSelect.Width / 2;
@@ -90,12 +93,16 @@ namespace Diplom2
             dgvUpdateFields.Width = pUpdate.Width * 2 / 3;
             pUpdateSettings.Width = pUpdate.Width * 1 / 3;
 
+            dgvDeleteFields.Width = pDelete.Width * 2 / 3;
+
             if (isOpenSelectInConstructor)
                 ClosePanels(Constructors.Select);
             else if (isOpenInsertInConstructor)
                     ClosePanels(Constructors.Insert);
             else if (isOpenUpdateInConstructor)
                     ClosePanels(Constructors.Update);
+            else if (isOpenDeleteInConstructor)
+                ClosePanels(Constructors.Delete);
             else ClosePanels(Constructors.None);
 
 
@@ -108,28 +115,44 @@ namespace Diplom2
                 case Constructors.Select:
                     pSelect.Visible = true;
                     pInsert.Visible = false;
-                    pInsert.Height = 0;
                     pUpdate.Visible = false;
+                    pDelete.Visible = false;
+                    pInsert.Height = 0;
                     pUpdate.Height = 0;
+                    pDelete.Height = 0;
                     break;
                 case Constructors.Insert:
-                    pInsert.Visible = true;
                     pSelect.Visible = false;
-                    pSelect.Height = 0;
+                    pInsert.Visible = true;
                     pUpdate.Visible = false;
+                    pDelete.Visible = false;
+                    pSelect.Height = 0;
                     pUpdate.Height = 0;
+                    pDelete.Height = 0;
                     break;
                 case Constructors.Update:
-                    pUpdate.Visible = true;
-                    pInsert.Visible = false;
-                    pInsert.Height = 0;
                     pSelect.Visible = false;
+                    pInsert.Visible = false;
+                    pUpdate.Visible = true;
+                    pDelete.Visible = false;
                     pSelect.Height = 0;
+                    pInsert.Height = 0;
+                    pDelete.Height = 0;
+                    break;
+                case Constructors.Delete:
+                    pSelect.Visible = false;
+                    pInsert.Visible = false;
+                    pUpdate.Visible = false;
+                    pDelete.Visible = true;
+                    pSelect.Height = 0;
+                    pInsert.Height = 0;
+                    pUpdate.Height = 0;
                     break;
                 case Constructors.None:
-                    pUpdate.Visible = false;
-                    pInsert.Visible = false;
                     pSelect.Visible = false;
+                    pInsert.Visible = false;
+                    pUpdate.Visible = false;
+                    pDelete.Visible = false;
                     break;
             }
         }
@@ -368,7 +391,10 @@ namespace Diplom2
                     {
                         AddInUpdate(clickedTable, clickedField);
                     }
-
+                    if (isOpenDeleteInConstructor)
+                    {
+                        AddInDelete(clickedTable, clickedField);
+                    }
                 }
             }
         }
@@ -379,8 +405,9 @@ namespace Diplom2
                 mainInsertQuery.Table = clickedTable;
             if (mainInsertQuery.Table == clickedTable)
             {
-                if (!FindDublicate(dgvInsertFields, clickedField, 0))
-                    dgvInsertFields.Rows.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`", "");
+                if (clickedField != "" && clickedField != null)
+                    if (!FindDublicate(dgvInsertFields, "`" + clickedTable.nameTable + "`.`" + clickedField + "`", 0))
+                        dgvInsertFields.Rows.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`", "");
             }
             else
             {
@@ -406,44 +433,6 @@ namespace Diplom2
             }
         }
 
-        //private void AddInSelect(TableInDiagram clickedTable, string clickedField)
-        //{
-        //    if (!FindDublicate(dgvAlias, clickedTable.nameTable, 0))  // если это поле не выбиралось
-        //    {
-        //        int relCount = mainSelectQuery.useRelationships.Count;
-        //        Relationship r = FindRelationshipField(clickedTable.nameTable);
-        //        if ((relCount == 0 && mainSelectQuery.tableNames.Count < 2)
-        //            || (relCount > 0 ? ( // если есть уже связи
-        //         r.tableName == mainSelectQuery.useRelationships[relCount - 1].tableName
-        //         || r.referencedTableName == mainSelectQuery.useRelationships[relCount - 1].tableName) : false))
-        //        {
-        //            if (clickedField != null && !FindDublicate(dgvAlias, "`" + clickedTable.nameTable + "`.`" + clickedField + "`", 0))
-        //            {
-        //                dgvAlias.Rows.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`", "");
-        //            }
-        //            if (!mainSelectQuery.tableNames.Contains(clickedTable.nameTable) && clickedTable.nameTable.Contains(".")) // Если таблицы не выбиралось, добавить
-        //                mainSelectQuery.tableNames.Add(clickedTable.nameTable);
-        //            if (clickedField != "")
-        //                mainSelectQuery.selectExpressions.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`");
-        //            if (mainSelectQuery.tableNames.Count > 1) //Если таблиц больше 1
-        //            {
-        //                if (!mainSelectQuery.useRelationships.Contains(r))
-        //                {
-        //                    dgvJoin.Rows.Add(r.referencedTableName, r.referencedColumnName, r.tableName, r.columnName,
-        //                        new DataGridViewComboBoxCell().ValueMember = "JOIN");
-        //                    mainSelectQuery.useRelationships.Add(r);
-        //                }
-        //            }
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Для использования оператора JOIN необходимо связывать таблицы последовательно!");
-        //            Field f = clickedTable.Fields[_clicableField]; // цвет выделения!
-        //            f.Brush = Brushes.Black;
-        //            clickedTable.Fields[_clicableField] = f;
-        //        }
-        //    }
-        //}
         private void AddInSelect(TableInDiagram clickedTable, string clickedField)
         {
             if (!FindDublicate(dgvAlias, clickedTable.nameTable, 0))  // если это поле не выбиралось
@@ -476,16 +465,22 @@ namespace Diplom2
                     {
                         if (!mainSelectQuery.useRelationships.Contains(r))
                         {
-                            dgvAlias.Rows.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`", "");
-                            mainSelectQuery.selectExpressions.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`");
+                            if (clickedField != "" || clickedField != null)
+                            {
+                                dgvAlias.Rows.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`", "");
+                                mainSelectQuery.selectExpressions.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`");
+                            }
                             dgvJoin.Rows.Add(r.referencedTableName, r.referencedColumnName, r.tableName, r.columnName,
                                 new DataGridViewComboBoxCell().ValueMember = "JOIN");
                             mainSelectQuery.useRelationships.Add(r);
                         }
                         else
                         {
-                            dgvAlias.Rows.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`", "");
-                            mainSelectQuery.selectExpressions.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`");
+                            if (clickedField != "" || clickedField != null)
+                            {
+                                dgvAlias.Rows.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`", "");
+                                mainSelectQuery.selectExpressions.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`");
+                            }
                         }
                     }
                     else
@@ -495,6 +490,20 @@ namespace Diplom2
                         f.Brush = Brushes.Black;
                         clickedTable.Fields[_clicableField] = f; 
                     }
+                }
+            }
+        }
+
+        private void AddInDelete(TableInDiagram clickedTable, string clickedField) 
+        {
+            if (clickedField != null & clickedField != "")
+            {
+                if (!mainDeleteQuery.TableNames.Contains(clickedTable.nameTable))
+                    mainDeleteQuery.TableNames.Add(clickedTable.nameTable);
+                if (!FindDublicate(dgvDeleteFields, clickedField, 0))
+                {
+                    dgvDeleteFields.Rows.Add("`"+clickedTable.nameTable+"`.`"+clickedField+"`", "",
+                        false);
                 }
             }
         }
@@ -547,6 +556,7 @@ namespace Diplom2
             mainSelectQuery = new SelectQuery();
             mainInsertQuery = new InsertQuery();
             mainUpdateQuery = new UpdateQuery();
+            mainDeleteQuery = new DeleteQuery();
             rtbQueryConstructor.Text = "";
             dgvAlias.Rows.Clear();
             dgvJoin.Rows.Clear();
@@ -554,6 +564,11 @@ namespace Diplom2
             dgvInsertFields.Rows.Clear();
             rtbInsertSelectQuery.Text = "Введи SELECT запрос для команды INSERT";
             dgvUpdateFields.Rows.Clear();
+            dgvDeleteFields.Rows.Clear();
+            rtbDeleteWhere.Text = "";
+            tbDeleteLimit.Text = "";
+            cbDeleteLow.Checked = false;
+            cbDeleteQuick.Checked = false;
 
         }
 
@@ -570,6 +585,11 @@ namespace Diplom2
         private void uPDATEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenConstructor(Constructors.Update);
+        }
+
+        private void dELETEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenConstructor(Constructors.Delete);
         }
 
         private void OpenSelectConstructor()
@@ -608,6 +628,18 @@ namespace Diplom2
             ResizeElements();
         }
 
+        private void OpenDeleteConstructor()
+        {
+            if (!isOpenConstructior)
+            {
+                isOpenConstructior = true;
+                mainDeleteQuery = new DeleteQuery();
+            }
+            isOpenDeleteInConstructor = true;
+            mainDeleteQuery = new DeleteQuery();
+            ResizeElements();
+        }
+
         private enum Constructors
         {
             Select,
@@ -631,6 +663,9 @@ namespace Diplom2
                 case Constructors.Update:
                     OpenUpdateConstructor();
                     break;
+                case Constructors.Delete:
+                    OpenDeleteConstructor();
+                    break;
                 case Constructors.None:
                     ResetConstructors();
                     break;
@@ -643,8 +678,10 @@ namespace Diplom2
             isOpenSelectInConstructor = false;
             isOpenInsertInConstructor = false;
             isOpenUpdateInConstructor = false;
+            isOpenDeleteInConstructor = false;
             ResetSelectConstructor();
             ResetInsertConstructor();
+            ResetDeleteConstructor();
             UnSelectTables();
         }
 
@@ -665,6 +702,15 @@ namespace Diplom2
             mainInsertQuery = new InsertQuery();
         }
 
+        private void ResetDeleteConstructor()
+        {
+            dgvDeleteFields.Rows.Clear();
+            cbDeleteLow.Checked = false;
+            cbDeleteQuick.Checked = false;
+            tbDeleteLimit.Text = "";
+            rtbDeleteWhere.Text = "";
+        }
+
         private void UnSelectTables()
         {
             foreach (TableInDiagram t in tablesInForm)
@@ -683,7 +729,8 @@ namespace Diplom2
             // Очистить все поля
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void SelectGenerate()
         {
             if (mainSelectQuery.selectExpressions.Count > 0)
             {
@@ -703,9 +750,30 @@ namespace Diplom2
                 gbQueryConstructor.Navigate(loadHTML(generatedQuery));
                 ExecuteForm f = new ExecuteForm(loadHTML(generatedQuery), MySQL, generatedQuery);
                 f.ShowDialog();
-                //FormResultQuery f = new FormResultQuery(MySQL, rtbQueryConstructor.Text);
-                //f.Show();
             }
+        }
+
+        private void DeleteGenerate()
+        {
+            mainDeleteQuery.Limit = tbDeleteLimit.Text;
+            mainDeleteQuery.LowPriotity = cbDeleteLow.Checked;
+            mainDeleteQuery.Quick = cbDeleteQuick.Checked;
+            mainDeleteQuery.Where = rtbDeleteWhere.Text;
+            string orderBy = "";
+            foreach (DataGridViewRow r in dgvDeleteFields.Rows)
+            {
+                if (r.Cells[0].Value != null)
+                {
+                    if (((DataGridViewCheckBoxCell)r.Cells[2]).Value.ToString() == true.ToString())
+                    {
+                        orderBy += orderBy != "" ? "," + r.Cells[0].Value.ToString() : r.Cells[0].Value.ToString();
+                    }
+                }
+            }
+            mainDeleteQuery.OrderBy = orderBy;
+            string generatedQuery = mainDeleteQuery.GenerateDeleteQuery();
+            ExecuteForm f = new ExecuteForm(loadHTML(generatedQuery), MySQL, generatedQuery);
+            f.ShowDialog();
         }
 
         private void tcSelect_SelectedIndexChanged(object sender, EventArgs e)
@@ -730,23 +798,29 @@ namespace Diplom2
             mainSelectQuery.generateConditions(dgvConditions);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void InsertGenerate()
         {
             try
             {
+                mainInsertQuery.Expression.Clear();
                 foreach (DataGridViewRow dgvr in dgvInsertFields.Rows)
                 {
-                    mainInsertQuery.Expression.Add(new List<string>(){dgvr.Cells[0].Value.ToString(),
+                    if (dgvr.Cells[0].Value != null && dgvr.Cells[1].Value != null)
+                    {
+                        mainInsertQuery.Expression.Add(new List<string>(){dgvr.Cells[0].Value.ToString(),
                                                                 dgvr.Cells[1].Value.ToString()});
+                    }
                 }
+                string generatedQuery = mainInsertQuery.CreateInsertQuery();
+                gbQueryConstructor.Navigate(loadHTML(generatedQuery));
+                ExecuteForm f = new ExecuteForm(loadHTML(generatedQuery), MySQL, generatedQuery);
+                f.ShowDialog();
             }
             catch
-            {
-                gbQueryConstructor.Navigate(loadHTML(mainInsertQuery.CreateInsertQuery()));
-            }
+            { }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void UpdateGenerate()
         {
             mainUpdateQuery.Ignore = cbIgnoreUpdate.Checked;
             mainUpdateQuery.Low = cbLowPriorityUpdate.Checked;
@@ -754,20 +828,29 @@ namespace Diplom2
             mainUpdateQuery.Where = tbWhereUpdate.Text;
             try
             {
+                mainUpdateQuery.Expression.Clear();
                 foreach (DataGridViewRow dgvr in dgvUpdateFields.Rows)
                 {
-                    mainUpdateQuery.Expression.Add(new List<string>(){dgvr.Cells[0].Value.ToString(), dgvr.Cells[1].Value.ToString(),
+                    if (dgvr.Cells[0].Value != null && dgvr.Cells[2].Value != null)
+                        mainUpdateQuery.Expression.Add(new List<string>(){dgvr.Cells[0].Value.ToString(), dgvr.Cells[1].Value.ToString(),
                                                 dgvr.Cells[2].Value.ToString(), dgvr.Cells[3].Value.ToString()});
                 }
+                string generatedQuery = mainUpdateQuery.CreateUpdateQuery();
+                gbQueryConstructor.Navigate(loadHTML(generatedQuery));
+                ExecuteForm f = new ExecuteForm(loadHTML(generatedQuery), MySQL, generatedQuery);
+                f.ShowDialog();
             }
             catch { }
-            gbQueryConstructor.Navigate(loadHTML(mainUpdateQuery.CreateUpdateQuery()));
         }
 
         private void FormDiagram_FormClosing(object sender, FormClosingEventArgs e)
         {
             Program.chooseForm.Visible = true;
             Program.formDiagram = null;
+            if (tablesInForm.Count != 0)
+            {
+                
+            }
         }
 
         public string loadHTML(string sql)
@@ -777,6 +860,26 @@ namespace Diplom2
             sw.Write(site);
             sw.Close();
             return Directory.GetCurrentDirectory() + @"\Titles\js\TEMPSQL.html";
+        }
+
+        private void dgvDeleteFields_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 1)
+                rtbDeleteWhere.Text += (rtbDeleteWhere.Text != "" ? "\n AND \n" : "") +
+                    dgvDeleteFields.Rows[e.RowIndex].Cells[0].Value.ToString() + " " +
+                    dgvDeleteFields.Rows[e.RowIndex].Cells[1].Value.ToString();
+        }
+
+        private void btnGen_Click(object sender, EventArgs e)
+        {
+            if (isOpenSelectInConstructor)
+                SelectGenerate();
+            if (isOpenInsertInConstructor)
+                InsertGenerate();
+            if (isOpenUpdateInConstructor)
+                UpdateGenerate();
+            if (isOpenDeleteInConstructor)
+                DeleteGenerate();
         }
     }
 }

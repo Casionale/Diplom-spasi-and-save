@@ -33,7 +33,6 @@ namespace Diplom2.Constructor
 
         private void ExecuteForm_Load(object sender, EventArgs e)
         {
-
         }
 
         private void xbtnExecute_Click(object sender, EventArgs e)

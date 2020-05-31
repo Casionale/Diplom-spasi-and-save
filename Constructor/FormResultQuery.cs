@@ -41,7 +41,9 @@ namespace Diplom2
         private void FormResultQuery_Load(object sender, EventArgs e)
         {
             dgvConstructor.DataSource = MySQL.GetResultCommand(MySQLCommand);
-            
+            if (dgvConstructor.Rows.Count == 0)
+                MessageBox.Show("Запрос не вернул значений. Запрос выполнен.");
+            Close();
         }
 
         private void DgvConstructor_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)

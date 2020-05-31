@@ -38,28 +38,29 @@ namespace Diplom2
 
         public string CreateUpdateQuery()
         {
-            string query = "";
+            string query;
             string tableRef = "";
             string assigment = "";
-            string where = "";
+            string where = _where;
 
             foreach (List<string> row in Expression)
             {
                 // Если по имени поля
-                if (!row[0].ToUpper().Contains("SELECT"))
+                if (!row[2].ToUpper().Contains("SELECT"))
                 {
-                    tableRef += (tableRef != "" ? "," : "") + row[0] + (row[1] != "" ? " AS " + row[1] : "");
+                    //tableRef += (tableRef != "" ? "," : "") + row[0] + (row[1] != "" ? " AS " + row[1] : "");
                     if (row[2] != "")
-                        assigment += (assigment != "" ? "," : "") + (row[1] != "" ? row[1] : row[0]) + " = " + row[2];
+                        assigment += (assigment != "" ? ",\n" : "\n") + (row[1] != "" ? "'"+row[1]+"'" : row[0]) + " = " + "'"+row[2]+"'";
                 }
                 //Если подзапрос
                 else 
                 {
-                    
-                }
+                    if (row[2] != "")
+                        assigment += (assigment != "" ? ",\n" : "\n") + (row[1] != "" ? "'" + row[1] + "'" : row[0]) + "(" + row[2] + ")";
+               }
             }
-            query = string.Format("UPDATE {3} {4} \n{0} \nSET\n{1} \n{2}", tableRef, assigment, where == "" ? "" : "WHERE",
-                Ignore ? "IGNORE" : "", Low ? "LOW_PRIORITY" : "");
+            query = string.Format("UPDATE {4} {3} {5} {0}\nSET{1} {2}", tableRef, assigment, where == "" ? "" : "\nWHERE " + where,
+                Ignore ? "\nIGNORE" : "", Low ? "\nLOW_PRIORITY" : "", "\n`"+Table.nameTable+"`");
             return query;
         }
     }

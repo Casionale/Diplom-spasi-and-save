@@ -134,6 +134,7 @@
     <Compile Include="Constructor\DBConnectionForm.Designer.cs">
       <DependentUpon>DBConnectionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Constructor\DeleteQuery.cs" />
     <Compile Include="Constructor\ExecuteForm.cs">
       <SubType>Form</SubType>
     </Compile>
