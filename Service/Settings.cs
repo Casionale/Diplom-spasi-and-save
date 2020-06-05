@@ -17,6 +17,11 @@ namespace Diplom2
         public static int checkQuestion = 60;
         public static int radioQuestion = 45;
         public static string pathContent = "";
+
+        public static string DBUser = "root";
+        public static string DBPassword = "";
+        public static string DBServer = "localhost";
+        public static string DBName = "ремонтиукладкакровли";
         public static SettingsData getSettings() 
         {
             SettingsData settingsData = new SettingsData
@@ -27,7 +32,11 @@ namespace Diplom2
                 textQuestion = textQuestion,
                 countQuestions = countQuestions,
                 radioQuestion = radioQuestion,
-                pathContent = pathContent
+                pathContent = pathContent,
+                DBUser = DBUser,
+                DBPassword = DBPassword,
+                DBServer = DBServer,
+                DBName = DBName
             };
             return settingsData;
         }
@@ -41,6 +50,10 @@ namespace Diplom2
             countQuestions = settingsData.countQuestions;
             radioQuestion = settingsData.radioQuestion;
             pathContent = settingsData.pathContent;
+            DBUser = settingsData.DBUser;
+            DBPassword = settingsData.DBPassword;
+            DBServer = settingsData.DBServer;
+            DBName = settingsData.DBName;
         }
     }
 
@@ -53,5 +66,10 @@ namespace Diplom2
         public int checkQuestion { get; set; }
         public int radioQuestion { get; set; }
         public string pathContent { get; set; }
+        public string DBUser { get; set; }
+        public string DBPassword { get; set; }
+        public string DBServer { get; set; }
+        public string DBName { get; set; }
+
     }
 }

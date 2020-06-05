@@ -38,7 +38,7 @@ namespace Diplom2
                     values += (values != "" ? "," : "") + (int.TryParse(field[1], out num) || double.TryParse(field[1], out numD)
                                                                 ? field[1] : "'"+field[1]+"'");
                 }
-                query = string.Format("INSERT INTO `{0}`\n({1})\nVALUES ({2})", Table.nameTable, colNames, values);
+                query = string.Format("INSERT INTO `{0}`\n({1})\nVALUES ({2})", Table.NameTable, colNames, values);
             }
             else
             {

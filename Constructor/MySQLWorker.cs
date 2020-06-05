@@ -26,10 +26,10 @@ namespace Diplom2
 
         public MySQLWorker()
         {
-            this.User = "root";
-            this.Password = "";
-            this.Db = "ремонтиукладкакровли";
-            this.Server = "localhost";
+            this.User = Settings.DBUser;
+            this.Password = Settings.DBPassword;
+            this.Db = Settings.DBName;
+            this.Server = Settings.DBServer;
         }
 
         public MySQLWorker(string user, string password, string db, string server) 
@@ -141,7 +141,6 @@ namespace Diplom2
                 }
                 conn.Close();
             }
-            
             return rel;
         }
 
@@ -163,6 +162,16 @@ namespace Diplom2
                 return null;
             }
             
+        }
+
+        public MySqlDataReader Execute(string sql)
+        {
+            conn.Open();
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            MySqlDataReader reader;
+            reader = cmd.ExecuteReader();
+            return reader;
+            conn.Close();
         }
     }
 }

@@ -16,24 +16,20 @@ namespace Diplom2
         public Point startPoint;
         public Point endPoint;
         public Rectangle rect;
-        private int _width = 140;
-        private int _height = 20;
         private Font _font = new Font("Times New Roman", 8);
         private Brush _brush = Brushes.Black;
-
-        public string nameTable;
-        private List<Field> _fields = new List<Field>();
         private List<string> _functions = new List<string>();
         private List<string> _indexes = new List<string>();
 
-        public List<Field> Fields { get => _fields; set => _fields = value; }
-        public int Height { get => _height; set => _height = value; }
-        public int Width { get => _width; set => _width = value; }
+        public List<Field> Fields { get; set; } = new List<Field>();
+        public int Height { get; set; } = 20;
+        public int Width { get; set; } = 140;
+        public string NameTable { get; set; }
 
         public TableInDiagram()
         {
             startPoint = new Point(100, 100);
-            nameTable = "table1";
+            NameTable = "table1";
             Fields.Add(new Field("PK","field1","INT"));
             Fields.Add(new Field("PK", "field2", "BOOL"));
             Fields.Add(new Field("PK", "field3", "DOUBLE"));
@@ -44,7 +40,7 @@ namespace Diplom2
         public TableInDiagram(Point startPoint, string nameTable, List<Field> fields, List<string> functions)
         {
             this.startPoint = startPoint;
-            this.nameTable = nameTable;
+            this.NameTable = nameTable;
             Fields = fields;
             _functions = functions;
         }
@@ -53,7 +49,7 @@ namespace Diplom2
         {
             e.Graphics.FillRectangle(Brushes.White, new Rectangle(startPoint, new Size(Width, Height)));
             e.Graphics.DrawRectangle(Pens.Black, new Rectangle(startPoint, new Size(Width, Height)));
-            e.Graphics.DrawString(nameTable, _font, _brush, startPoint.X + (Width * (float)0.16), startPoint.Y + (Height / 2 - _font.Size ));
+            e.Graphics.DrawString(NameTable, _font, _brush, startPoint.X + (Width * (float)0.16), startPoint.Y + (Height / 2 - _font.Size ));
             Point bufPoint = new Point(startPoint.X, startPoint.Y + Height);
             e.Graphics.FillRectangle(Brushes.White, new Rectangle(bufPoint, new Size(Width, Fields.Count * Height)));
             e.Graphics.DrawRectangle(Pens.Black, new Rectangle(bufPoint, new Size(Width, Fields.Count*Height)));

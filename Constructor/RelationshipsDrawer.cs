@@ -31,7 +31,7 @@ namespace Diplom2
         {
             foreach (TableInDiagram t in tables)
             {
-                if (t.nameTable == tableName)
+                if (t.NameTable == tableName)
                 {
                     foreach (Field f in t.Fields)
                     {

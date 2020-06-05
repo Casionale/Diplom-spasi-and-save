@@ -21,6 +21,10 @@ namespace Diplom2.Service
             Settings.textQuestion = Convert.ToInt32(tbTimeText.Text);
             Settings.ShowAnswers = cbShowAnswer.Checked;
             Settings.ShowMenuStrip = cbShowMenu.Checked;
+            Settings.DBServer = tbDefaultDBServer.Text;
+            Settings.DBUser = tbDefaultDBUser.Text;
+            Settings.DBName = tbDefaultDBName.Text;
+            Settings.DBPassword = tbDefaultDBPassword.Text;
             SaveSettings();
         }
 
@@ -48,6 +52,10 @@ namespace Diplom2.Service
             tbTimeText.Text = Settings.textQuestion.ToString();
             cbShowAnswer.Checked = Settings.ShowAnswers;
             cbShowMenu.Checked = Settings.ShowMenuStrip;
+            tbDefaultDBServer.Text = Settings.DBServer;
+            tbDefaultDBUser.Text = Settings.DBUser;
+            tbDefaultDBName.Text = Settings.DBName;
+            tbDefaultDBPassword.Text = Settings.DBPassword;
         }
 
         public static void LoadSettings()

@@ -44,7 +44,17 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDialog = new System.Windows.Forms.Button();
             this.cbShowMenu = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbDefaultDBUser = new System.Windows.Forms.TextBox();
+            this.tbDefaultDBPassword = new System.Windows.Forms.TextBox();
+            this.tbDefaultDBServer = new System.Windows.Forms.TextBox();
+            this.tbDefaultDBName = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbMaxQuestions
@@ -226,12 +236,120 @@
             this.cbShowMenu.Text = "Показ меню главного окна";
             this.cbShowMenu.UseVisualStyleBackColor = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tbDefaultDBName);
+            this.groupBox2.Controls.Add(this.tbDefaultDBServer);
+            this.groupBox2.Controls.Add(this.tbDefaultDBPassword);
+            this.groupBox2.Controls.Add(this.tbDefaultDBUser);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(119)))), ((int)(((byte)(215)))));
+            this.groupBox2.Location = new System.Drawing.Point(538, 107);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(224, 209);
+            this.groupBox2.TabIndex = 17;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Стандартная БД";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label5.Location = new System.Drawing.Point(6, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 16);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "User";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label6.Location = new System.Drawing.Point(6, 70);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 16);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Password";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label7.Location = new System.Drawing.Point(6, 162);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 16);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "DB Name";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label8.Location = new System.Drawing.Point(6, 120);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(42, 16);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Server";
+            // 
+            // tbDefaultDBUser
+            // 
+            this.tbDefaultDBUser.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbDefaultDBUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(119)))), ((int)(((byte)(215)))));
+            this.tbDefaultDBUser.Location = new System.Drawing.Point(9, 45);
+            this.tbDefaultDBUser.Name = "tbDefaultDBUser";
+            this.tbDefaultDBUser.Size = new System.Drawing.Size(209, 22);
+            this.tbDefaultDBUser.TabIndex = 11;
+            this.tbDefaultDBUser.Text = "root";
+            // 
+            // tbDefaultDBPassword
+            // 
+            this.tbDefaultDBPassword.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbDefaultDBPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(119)))), ((int)(((byte)(215)))));
+            this.tbDefaultDBPassword.Location = new System.Drawing.Point(8, 93);
+            this.tbDefaultDBPassword.Name = "tbDefaultDBPassword";
+            this.tbDefaultDBPassword.Size = new System.Drawing.Size(209, 22);
+            this.tbDefaultDBPassword.TabIndex = 12;
+            // 
+            // tbDefaultDBServer
+            // 
+            this.tbDefaultDBServer.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbDefaultDBServer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(119)))), ((int)(((byte)(215)))));
+            this.tbDefaultDBServer.Location = new System.Drawing.Point(8, 139);
+            this.tbDefaultDBServer.Name = "tbDefaultDBServer";
+            this.tbDefaultDBServer.Size = new System.Drawing.Size(209, 22);
+            this.tbDefaultDBServer.TabIndex = 13;
+            // 
+            // tbDefaultDBName
+            // 
+            this.tbDefaultDBName.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbDefaultDBName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(119)))), ((int)(((byte)(215)))));
+            this.tbDefaultDBName.Location = new System.Drawing.Point(6, 181);
+            this.tbDefaultDBName.Name = "tbDefaultDBName";
+            this.tbDefaultDBName.Size = new System.Drawing.Size(209, 22);
+            this.tbDefaultDBName.TabIndex = 14;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(770, 453);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.cbShowMenu);
             this.Controls.Add(this.btnDialog);
             this.Controls.Add(this.btnSave);
@@ -247,6 +365,8 @@
             this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,5 +388,14 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDialog;
         private System.Windows.Forms.CheckBox cbShowMenu;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbDefaultDBName;
+        private System.Windows.Forms.TextBox tbDefaultDBServer;
+        private System.Windows.Forms.TextBox tbDefaultDBPassword;
+        private System.Windows.Forms.TextBox tbDefaultDBUser;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label6;
     }
 }

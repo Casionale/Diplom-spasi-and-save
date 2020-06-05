@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -184,7 +185,6 @@ namespace Diplom2
             }
         }
 
-
         private void pbDiagram_MouseMove(object sender, MouseEventArgs e)
         {
             if (_mouseDown)
@@ -255,10 +255,18 @@ namespace Diplom2
             MySQL.Connection();
             List<string> tableNames = MySQL.GetTableNames();
             int startPointMod = 0;
+            List<NamesAndCoordinates> names = null; 
+            if (File.Exists("Constructor/" + MySQL.Db + ".json"))
+            {
+                StreamReader sr = new StreamReader(File.OpenRead("Constructor/" + MySQL.Db + ".json"));
+                string json = sr.ReadToEnd();
+                sr.Close();
+                names = JsonSerializer.Deserialize<List<NamesAndCoordinates>>(json);
+            }
             foreach (string table in tableNames)
             {
                 List<Field> fields = MySQL.GetFieldsInTable(table);
-                Point startPoint = new Point(50 + (50 * startPointMod), 10);
+                Point startPoint = GetStartPoint(startPointMod, names, table);
                 TableInDiagram tID = new TableInDiagram(startPoint, table, fields, new List<string>());
                 tablesInForm.Add(tID);
                 startPointMod++;
@@ -275,6 +283,23 @@ namespace Diplom2
                 vsbDiagram.Value = 0;
                 sLabel.Text = "Загрузка из БД завершена успешно";
             }));
+        }
+
+        private static Point GetStartPoint(int startPointMod, List<NamesAndCoordinates> names, string name)
+        {
+            if (names == null)
+                return new Point(50 + (50 * startPointMod), 10);
+            else
+            {
+                foreach (NamesAndCoordinates n in names)
+                {
+                    if (name == n.Name)
+                    {
+                        return n.Coordinate;
+                    }
+                }
+                return new Point(50 + (50 * startPointMod), 10);
+            }
         }
 
         private void FormDiagram_Resize(object sender, EventArgs e)
@@ -406,8 +431,8 @@ namespace Diplom2
             if (mainInsertQuery.Table == clickedTable)
             {
                 if (clickedField != "" && clickedField != null)
-                    if (!FindDublicate(dgvInsertFields, "`" + clickedTable.nameTable + "`.`" + clickedField + "`", 0))
-                        dgvInsertFields.Rows.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`", "");
+                    if (!FindDublicate(dgvInsertFields, "`" + clickedTable.NameTable + "`.`" + clickedField + "`", 0))
+                        dgvInsertFields.Rows.Add("`" + clickedTable.NameTable + "`.`" + clickedField + "`", "");
             }
             else
             {
@@ -423,7 +448,7 @@ namespace Diplom2
             if (mainUpdateQuery.Table == clickedTable)
             {
                 if (!FindDublicate(dgvUpdateFields, clickedField, 0))
-                    dgvUpdateFields.Rows.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`", "", "",
+                    dgvUpdateFields.Rows.Add("`" + clickedTable.NameTable + "`.`" + clickedField + "`", "", "",
                         new DataGridViewComboBoxCell().DisplayMember = "NONE");
             }
             else
@@ -435,21 +460,21 @@ namespace Diplom2
 
         private void AddInSelect(TableInDiagram clickedTable, string clickedField)
         {
-            if (!FindDublicate(dgvAlias, clickedTable.nameTable, 0))  // если это поле не выбиралось
+            if (!FindDublicate(dgvAlias, clickedTable.NameTable, 0))  // если это поле не выбиралось
             {
                 int relCount = mainSelectQuery.useRelationships.Count;
-                Relationship r = FindRelationshipField(clickedTable.nameTable);// поиск таблицы если можно связать
+                Relationship r = FindRelationshipField(clickedTable.NameTable);// поиск таблицы если можно связать
                 if (relCount == 0)//Если связей нет
                 {
                     //Если такой таблицы не было добавлено, то добавить
-                    if (!mainSelectQuery.tableNames.Contains(clickedTable.nameTable))
-                        mainSelectQuery.tableNames.Add(clickedTable.nameTable);
+                    if (!mainSelectQuery.tableNames.Contains(clickedTable.NameTable))
+                        mainSelectQuery.tableNames.Add(clickedTable.NameTable);
                     //Если такого поля не было выбрано ранее, то выбрать
                     if (clickedField != null && clickedField != "" &&
-                                !FindDublicate(dgvAlias, "`" + clickedTable.nameTable + "`.`" + clickedField + "`", 0))
+                                !FindDublicate(dgvAlias, "`" + clickedTable.NameTable + "`.`" + clickedField + "`", 0))
                     {
-                        dgvAlias.Rows.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`", "");
-                        mainSelectQuery.selectExpressions.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`");
+                        dgvAlias.Rows.Add("`" + clickedTable.NameTable + "`.`" + clickedField + "`", "");
+                        mainSelectQuery.selectExpressions.Add("`" + clickedTable.NameTable + "`.`" + clickedField + "`");
                     }
                     if (r.columnName != null)
                     {
@@ -467,8 +492,8 @@ namespace Diplom2
                         {
                             if (clickedField != "" || clickedField != null)
                             {
-                                dgvAlias.Rows.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`", "");
-                                mainSelectQuery.selectExpressions.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`");
+                                dgvAlias.Rows.Add("`" + clickedTable.NameTable + "`.`" + clickedField + "`", "");
+                                mainSelectQuery.selectExpressions.Add("`" + clickedTable.NameTable + "`.`" + clickedField + "`");
                             }
                             dgvJoin.Rows.Add(r.referencedTableName, r.referencedColumnName, r.tableName, r.columnName,
                                 new DataGridViewComboBoxCell().ValueMember = "JOIN");
@@ -478,8 +503,8 @@ namespace Diplom2
                         {
                             if (clickedField != "" || clickedField != null)
                             {
-                                dgvAlias.Rows.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`", "");
-                                mainSelectQuery.selectExpressions.Add("`" + clickedTable.nameTable + "`.`" + clickedField + "`");
+                                dgvAlias.Rows.Add("`" + clickedTable.NameTable + "`.`" + clickedField + "`", "");
+                                mainSelectQuery.selectExpressions.Add("`" + clickedTable.NameTable + "`.`" + clickedField + "`");
                             }
                         }
                     }
@@ -498,11 +523,11 @@ namespace Diplom2
         {
             if (clickedField != null & clickedField != "")
             {
-                if (!mainDeleteQuery.TableNames.Contains(clickedTable.nameTable))
-                    mainDeleteQuery.TableNames.Add(clickedTable.nameTable);
+                if (!mainDeleteQuery.TableNames.Contains(clickedTable.NameTable))
+                    mainDeleteQuery.TableNames.Add(clickedTable.NameTable);
                 if (!FindDublicate(dgvDeleteFields, clickedField, 0))
                 {
-                    dgvDeleteFields.Rows.Add("`"+clickedTable.nameTable+"`.`"+clickedField+"`", "",
+                    dgvDeleteFields.Rows.Add("`"+clickedTable.NameTable+"`.`"+clickedField+"`", "",
                         false);
                 }
             }
@@ -849,7 +874,19 @@ namespace Diplom2
             Program.formDiagram = null;
             if (tablesInForm.Count != 0)
             {
-                
+                List<NamesAndCoordinates> names = new List<NamesAndCoordinates>();
+                foreach (TableInDiagram t in tablesInForm)
+                {
+                    names.Add(new NamesAndCoordinates
+                    {
+                        Name = t.NameTable,
+                        Coordinate = t.startPoint
+                    });
+                }
+                string json = JsonSerializer.Serialize(names);
+                StreamWriter sr = new StreamWriter(File.Create("Constructor/" + MySQL.Db+".json"));
+                sr.Write(json);
+                sr.Close();
             }
         }
 
@@ -881,6 +918,20 @@ namespace Diplom2
             if (isOpenDeleteInConstructor)
                 DeleteGenerate();
         }
+        private void OpenContext(Point point)
+        {
+            
+        }
+        private void CloseContext(Point point)
+        {
+            
+        }
+    }
+
+    public class NamesAndCoordinates 
+    {
+        public string Name { get; set; }
+        public Point Coordinate { get; set; }
     }
 }
 

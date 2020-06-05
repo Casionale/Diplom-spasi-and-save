@@ -60,7 +60,7 @@ namespace Diplom2
                }
             }
             query = string.Format("UPDATE {4} {3} {5} {0}\nSET{1} {2}", tableRef, assigment, where == "" ? "" : "\nWHERE " + where,
-                Ignore ? "\nIGNORE" : "", Low ? "\nLOW_PRIORITY" : "", "\n`"+Table.nameTable+"`");
+                Ignore ? "\nIGNORE" : "", Low ? "\nLOW_PRIORITY" : "", "\n`"+Table.NameTable+"`");
             return query;
         }
     }

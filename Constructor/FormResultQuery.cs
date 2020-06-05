@@ -42,8 +42,10 @@ namespace Diplom2
         {
             dgvConstructor.DataSource = MySQL.GetResultCommand(MySQLCommand);
             if (dgvConstructor.Rows.Count == 0)
+            {
                 MessageBox.Show("Запрос не вернул значений. Запрос выполнен.");
-            Close();
+                Close();
+            }
         }
 
         private void DgvConstructor_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -53,12 +55,12 @@ namespace Diplom2
 
         private void ResizeDGV()
         {
-            dgvConstructor.Height = dgvConstructor.Rows.GetRowsHeight(DataGridViewElementStates.Visible) +
-                                   dgvConstructor.ColumnHeadersHeight;
-            dgvConstructor.Width = dgvConstructor.Columns.GetColumnsWidth(DataGridViewElementStates.Visible) +
-                +dgvConstructor.RowHeadersWidth;
+            //dgvConstructor.Height = dgvConstructor.Rows.GetRowsHeight(DataGridViewElementStates.Visible) +
+            //                       dgvConstructor.ColumnHeadersHeight;
+            //dgvConstructor.Width = dgvConstructor.Columns.GetColumnsWidth(DataGridViewElementStates.Visible) +
+            //    +dgvConstructor.RowHeadersWidth;
             Height = dgvConstructor.Height;
-            Width = dgvConstructor.Width;
+            //Width = dgvConstructor.Width;
         }
 
     }

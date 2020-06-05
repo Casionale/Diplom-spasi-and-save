@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pbDiagram = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,23 +49,44 @@
             this.sELECTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNSERTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uPDATEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dELETEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.закрытьКонструкторToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ss = new System.Windows.Forms.StatusStrip();
             this.sLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.vsbDiagram = new System.Windows.Forms.VScrollBar();
             this.pConstructor = new System.Windows.Forms.Panel();
+            this.pDelete = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.rtbDeleteWhere = new System.Windows.Forms.RichTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbDeleteLimit = new System.Windows.Forms.TextBox();
+            this.cbDeleteQuick = new System.Windows.Forms.CheckBox();
+            this.cbDeleteLow = new System.Windows.Forms.CheckBox();
+            this.dgvDeleteFields = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pUpdate = new System.Windows.Forms.Panel();
             this.pUpdateSettings = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.tbWhereUpdate = new System.Windows.Forms.TextBox();
             this.tbLimitUpdate = new System.Windows.Forms.TextBox();
             this.cbIgnoreUpdate = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbLowPriorityUpdate = new System.Windows.Forms.CheckBox();
             this.dgvUpdateFields = new System.Windows.Forms.DataGridView();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.pInsert = new System.Windows.Forms.Panel();
             this.rtbInsertSelectQuery = new System.Windows.Forms.RichTextBox();
             this.dgvInsertFields = new System.Windows.Forms.DataGridView();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pSelect = new System.Windows.Forms.Panel();
             this.tcSelect = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -92,32 +114,16 @@
             this.rtbQueryConstructor = new System.Windows.Forms.RichTextBox();
             this.btnResetQuery = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dELETEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pDelete = new System.Windows.Forms.Panel();
-            this.dgvDeleteFields = new System.Windows.Forms.DataGridView();
-            this.cbDeleteLow = new System.Windows.Forms.CheckBox();
-            this.cbDeleteQuick = new System.Windows.Forms.CheckBox();
-            this.rtbDeleteWhere = new System.Windows.Forms.RichTextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.tbDeleteLimit = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGen = new System.Windows.Forms.Button();
-            this.Column20 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cmTable = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pbDiagram)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.ss.SuspendLayout();
             this.pConstructor.SuspendLayout();
+            this.pDelete.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDeleteFields)).BeginInit();
             this.pUpdate.SuspendLayout();
             this.pUpdateSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUpdateFields)).BeginInit();
@@ -131,10 +137,6 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConditions)).BeginInit();
             this.tabPage3.SuspendLayout();
-            this.pDelete.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDeleteFields)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbDiagram
@@ -250,6 +252,13 @@
             this.uPDATEToolStripMenuItem.Text = "UPDATE";
             this.uPDATEToolStripMenuItem.Click += new System.EventHandler(this.uPDATEToolStripMenuItem_Click);
             // 
+            // dELETEToolStripMenuItem
+            // 
+            this.dELETEToolStripMenuItem.Name = "dELETEToolStripMenuItem";
+            this.dELETEToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
+            this.dELETEToolStripMenuItem.Text = "DELETE";
+            this.dELETEToolStripMenuItem.Click += new System.EventHandler(this.dELETEToolStripMenuItem_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
@@ -305,6 +314,150 @@
             this.pConstructor.TabIndex = 5;
             this.pConstructor.Visible = false;
             // 
+            // pDelete
+            // 
+            this.pDelete.BackColor = System.Drawing.Color.White;
+            this.pDelete.Controls.Add(this.panel2);
+            this.pDelete.Controls.Add(this.panel1);
+            this.pDelete.Controls.Add(this.dgvDeleteFields);
+            this.pDelete.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pDelete.Location = new System.Drawing.Point(30, 0);
+            this.pDelete.Name = "pDelete";
+            this.pDelete.Size = new System.Drawing.Size(397, 198);
+            this.pDelete.TabIndex = 6;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.rtbDeleteWhere);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(220, 92);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(177, 106);
+            this.panel2.TabIndex = 3;
+            // 
+            // rtbDeleteWhere
+            // 
+            this.rtbDeleteWhere.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbDeleteWhere.Location = new System.Drawing.Point(0, 0);
+            this.rtbDeleteWhere.Name = "rtbDeleteWhere";
+            this.rtbDeleteWhere.Size = new System.Drawing.Size(177, 106);
+            this.rtbDeleteWhere.TabIndex = 4;
+            this.rtbDeleteWhere.Text = "";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.tbDeleteLimit);
+            this.panel1.Controls.Add(this.cbDeleteQuick);
+            this.panel1.Controls.Add(this.cbDeleteLow);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(220, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(177, 92);
+            this.panel1.TabIndex = 2;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 76);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Условие";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(4, 53);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "LIMIT";
+            // 
+            // tbDeleteLimit
+            // 
+            this.tbDeleteLimit.Location = new System.Drawing.Point(45, 49);
+            this.tbDeleteLimit.Name = "tbDeleteLimit";
+            this.tbDeleteLimit.Size = new System.Drawing.Size(117, 20);
+            this.tbDeleteLimit.TabIndex = 4;
+            // 
+            // cbDeleteQuick
+            // 
+            this.cbDeleteQuick.AutoSize = true;
+            this.cbDeleteQuick.Location = new System.Drawing.Point(6, 33);
+            this.cbDeleteQuick.Name = "cbDeleteQuick";
+            this.cbDeleteQuick.Size = new System.Drawing.Size(59, 17);
+            this.cbDeleteQuick.TabIndex = 3;
+            this.cbDeleteQuick.Text = "QUICK";
+            this.cbDeleteQuick.UseVisualStyleBackColor = true;
+            // 
+            // cbDeleteLow
+            // 
+            this.cbDeleteLow.AutoSize = true;
+            this.cbDeleteLow.Location = new System.Drawing.Point(6, 10);
+            this.cbDeleteLow.Name = "cbDeleteLow";
+            this.cbDeleteLow.Size = new System.Drawing.Size(108, 17);
+            this.cbDeleteLow.TabIndex = 2;
+            this.cbDeleteLow.Text = "LOW_PRIORITY";
+            this.cbDeleteLow.UseVisualStyleBackColor = true;
+            // 
+            // dgvDeleteFields
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvDeleteFields.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDeleteFields.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDeleteFields.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDeleteFields.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.Column20});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDeleteFields.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvDeleteFields.Dock = System.Windows.Forms.DockStyle.Left;
+            this.dgvDeleteFields.Location = new System.Drawing.Point(0, 0);
+            this.dgvDeleteFields.Name = "dgvDeleteFields";
+            this.dgvDeleteFields.RowHeadersVisible = false;
+            this.dgvDeleteFields.Size = new System.Drawing.Size(220, 198);
+            this.dgvDeleteFields.TabIndex = 1;
+            this.dgvDeleteFields.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDeleteFields_CellEndEdit);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Поле";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Условие";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // Column20
+            // 
+            this.Column20.HeaderText = "ORDER BY";
+            this.Column20.Name = "Column20";
+            // 
             // pUpdate
             // 
             this.pUpdate.BackColor = System.Drawing.Color.White;
@@ -329,6 +482,15 @@
             this.pUpdateSettings.Name = "pUpdateSettings";
             this.pUpdateSettings.Size = new System.Drawing.Size(176, 198);
             this.pUpdateSettings.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(32, 96);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Условие изменений";
             // 
             // tbWhereUpdate
             // 
@@ -392,6 +554,30 @@
             this.dgvUpdateFields.Size = new System.Drawing.Size(249, 198);
             this.dgvUpdateFields.TabIndex = 0;
             // 
+            // Column16
+            // 
+            this.Column16.HeaderText = "Поле";
+            this.Column16.Name = "Column16";
+            // 
+            // Column17
+            // 
+            this.Column17.HeaderText = "Псевдоним";
+            this.Column17.Name = "Column17";
+            // 
+            // Column18
+            // 
+            this.Column18.HeaderText = "Значение или SELECT";
+            this.Column18.Name = "Column18";
+            // 
+            // Column19
+            // 
+            this.Column19.HeaderText = "OrderBy";
+            this.Column19.Items.AddRange(new object[] {
+            "NONE",
+            "ASC",
+            "DESC"});
+            this.Column19.Name = "Column19";
+            // 
             // pInsert
             // 
             this.pInsert.BackColor = System.Drawing.Color.White;
@@ -440,6 +626,27 @@
             this.dgvInsertFields.RowHeadersVisible = false;
             this.dgvInsertFields.Size = new System.Drawing.Size(163, 198);
             this.dgvInsertFields.TabIndex = 0;
+            // 
+            // Column14
+            // 
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.Column14.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Column14.HeaderText = "Поле";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            // 
+            // Column15
+            // 
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            this.Column15.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Column15.HeaderText = "Значение";
+            this.Column15.Name = "Column15";
             // 
             // pSelect
             // 
@@ -559,7 +766,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(16, 170);
+            this.tabPage2.Size = new System.Drawing.Size(0, 170);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Условия";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -633,7 +840,7 @@
             this.tabPage3.Controls.Add(this.label1);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(16, 170);
+            this.tabPage3.Size = new System.Drawing.Size(0, 170);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Настройки запроса";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -694,206 +901,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // Column14
-            // 
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.Column14.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Column14.HeaderText = "Поле";
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            // 
-            // Column15
-            // 
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            this.Column15.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Column15.HeaderText = "Значение";
-            this.Column15.Name = "Column15";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 96);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Условие изменений";
-            // 
-            // Column16
-            // 
-            this.Column16.HeaderText = "Поле";
-            this.Column16.Name = "Column16";
-            // 
-            // Column17
-            // 
-            this.Column17.HeaderText = "Псевдоним";
-            this.Column17.Name = "Column17";
-            // 
-            // Column18
-            // 
-            this.Column18.HeaderText = "Значение или SELECT";
-            this.Column18.Name = "Column18";
-            // 
-            // Column19
-            // 
-            this.Column19.HeaderText = "OrderBy";
-            this.Column19.Items.AddRange(new object[] {
-            "NONE",
-            "ASC",
-            "DESC"});
-            this.Column19.Name = "Column19";
-            // 
-            // dELETEToolStripMenuItem
-            // 
-            this.dELETEToolStripMenuItem.Name = "dELETEToolStripMenuItem";
-            this.dELETEToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
-            this.dELETEToolStripMenuItem.Text = "DELETE";
-            this.dELETEToolStripMenuItem.Click += new System.EventHandler(this.dELETEToolStripMenuItem_Click);
-            // 
-            // pDelete
-            // 
-            this.pDelete.BackColor = System.Drawing.Color.White;
-            this.pDelete.Controls.Add(this.panel2);
-            this.pDelete.Controls.Add(this.panel1);
-            this.pDelete.Controls.Add(this.dgvDeleteFields);
-            this.pDelete.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pDelete.Location = new System.Drawing.Point(30, 0);
-            this.pDelete.Name = "pDelete";
-            this.pDelete.Size = new System.Drawing.Size(397, 198);
-            this.pDelete.TabIndex = 6;
-            // 
-            // dgvDeleteFields
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvDeleteFields.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvDeleteFields.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDeleteFields.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDeleteFields.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.Column20});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDeleteFields.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvDeleteFields.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dgvDeleteFields.Location = new System.Drawing.Point(0, 0);
-            this.dgvDeleteFields.Name = "dgvDeleteFields";
-            this.dgvDeleteFields.RowHeadersVisible = false;
-            this.dgvDeleteFields.Size = new System.Drawing.Size(220, 198);
-            this.dgvDeleteFields.TabIndex = 1;
-            this.dgvDeleteFields.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDeleteFields_CellEndEdit);
-            // 
-            // cbDeleteLow
-            // 
-            this.cbDeleteLow.AutoSize = true;
-            this.cbDeleteLow.Location = new System.Drawing.Point(6, 10);
-            this.cbDeleteLow.Name = "cbDeleteLow";
-            this.cbDeleteLow.Size = new System.Drawing.Size(108, 17);
-            this.cbDeleteLow.TabIndex = 2;
-            this.cbDeleteLow.Text = "LOW_PRIORITY";
-            this.cbDeleteLow.UseVisualStyleBackColor = true;
-            // 
-            // cbDeleteQuick
-            // 
-            this.cbDeleteQuick.AutoSize = true;
-            this.cbDeleteQuick.Location = new System.Drawing.Point(6, 33);
-            this.cbDeleteQuick.Name = "cbDeleteQuick";
-            this.cbDeleteQuick.Size = new System.Drawing.Size(59, 17);
-            this.cbDeleteQuick.TabIndex = 3;
-            this.cbDeleteQuick.Text = "QUICK";
-            this.cbDeleteQuick.UseVisualStyleBackColor = true;
-            // 
-            // rtbDeleteWhere
-            // 
-            this.rtbDeleteWhere.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbDeleteWhere.Location = new System.Drawing.Point(0, 0);
-            this.rtbDeleteWhere.Name = "rtbDeleteWhere";
-            this.rtbDeleteWhere.Size = new System.Drawing.Size(177, 106);
-            this.rtbDeleteWhere.TabIndex = 4;
-            this.rtbDeleteWhere.Text = "";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.tbDeleteLimit);
-            this.panel1.Controls.Add(this.cbDeleteQuick);
-            this.panel1.Controls.Add(this.cbDeleteLow);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(220, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(177, 92);
-            this.panel1.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.rtbDeleteWhere);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(220, 92);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(177, 106);
-            this.panel2.TabIndex = 3;
-            // 
-            // tbDeleteLimit
-            // 
-            this.tbDeleteLimit.Location = new System.Drawing.Point(45, 49);
-            this.tbDeleteLimit.Name = "tbDeleteLimit";
-            this.tbDeleteLimit.Size = new System.Drawing.Size(117, 20);
-            this.tbDeleteLimit.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 53);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "LIMIT";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 76);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 13);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Условие";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Поле";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Условие";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
             // btnGen
             // 
             this.btnGen.Location = new System.Drawing.Point(226, 1);
@@ -904,10 +911,10 @@
             this.btnGen.UseVisualStyleBackColor = true;
             this.btnGen.Click += new System.EventHandler(this.btnGen_Click);
             // 
-            // Column20
+            // cmTable
             // 
-            this.Column20.HeaderText = "ORDER BY";
-            this.Column20.Name = "Column20";
+            this.cmTable.Name = "cmTable";
+            this.cmTable.Size = new System.Drawing.Size(61, 4);
             // 
             // FormDiagram
             // 
@@ -937,6 +944,11 @@
             this.ss.ResumeLayout(false);
             this.ss.PerformLayout();
             this.pConstructor.ResumeLayout(false);
+            this.pDelete.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDeleteFields)).EndInit();
             this.pUpdate.ResumeLayout(false);
             this.pUpdateSettings.ResumeLayout(false);
             this.pUpdateSettings.PerformLayout();
@@ -952,11 +964,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvConditions)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            this.pDelete.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDeleteFields)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1042,6 +1049,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Button btnGen;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Column20;
+        private System.Windows.Forms.ContextMenuStrip cmTable;
     }
 }
 
